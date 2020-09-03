@@ -15,9 +15,10 @@ class CreateSecretsTable extends Migration
     {
         Schema::create('secrets', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at')->useCurrent();
-            $table->text('secret', 1000)->nullable();
-            $table->string('code', 255)->nullable();           
+            $table->integer('created_at')->nullable();
+            $table->text('secret', 20000)->nullable();
+            $table->string('code', 255)->nullable();
+            $table->integer('time')->nullable();           
         });
     }
 

@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/PHP/Vagrant/Projects/secret.api.ru/app/Secret.php</file>
+            <file>file:/D:/PHP/Vagrant/Projects/secret.api.ru/README.md</file>
             <file>file:/D:/PHP/Vagrant/Projects/secret.api.ru/app/Http/Controllers/SecretController.php</file>
-            <file>file:/D:/PHP/Vagrant/Projects/secret.api.ru/routes/api.php</file>
+            <file>file:/D:/PHP/Vagrant/Projects/secret.api.ru/app/Console/Kernel.php</file>
         </group>
     </open-files>
 </project-private>

@@ -46,7 +46,8 @@ class SecretController extends Controller
     public function generate(Request $request) {
         $rules = [
             'secret' => 'required|string|max:1000',
-            'code' => 'required|string|max:255'
+            'code' => 'required|string|max:255',
+            'time' => 'integer|max:30'
         ];
         $validator = $this->validator($request->all(), $rules);
         if ($validator) {
