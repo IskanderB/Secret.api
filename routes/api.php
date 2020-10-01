@@ -18,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
+/**
+ * Creating secret
+ */
 Route::post('/v1/generate', 'SecretController@generate')->name('generate');
+
+/**
+ * Getting secret
+ */
 Route::get('/v1/secrets/{secret_key}', 'SecretController@getOne')->name('secrets');
 

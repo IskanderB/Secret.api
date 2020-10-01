@@ -1,0 +1,62 @@
+paths:
+    apiV1Generate:
+        post:
+            summary: "Create secret"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                secret:
+                                    type: string
+                                    description: "Content secret"
+                                    example: "Example secret"
+                                    maxLength: 1000
+                                    required: true
+                                code:
+                                    type: string
+                                    description: "Code for getting secret content"
+                                    example: "Example code"
+                                    maxLength: 255
+                                    required: true
+                                time:
+                                    type: integer
+                                    description: "This secret will be deleted in {time} days"
+                                    example: 10
+                                    required: false
+            responses:
+                201:
+                    content:
+                       application/json:
+                           schema:
+                                properties:
+                                    data:
+                                        type: object
+                                        properties:
+                                            secret_key:
+                                                type: integer
+                                                example: 1
+                                                description: "Key for searching this secret"
+                422:
+                    content:
+                       application/json:
+                           schema:
+                                properties:
+                                    data:
+                                        type: object
+                                        properties:
+                                            secret:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                    example: "The secret field is required."
+                                            code:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                    example: "The code field is required."
+                                            time:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                    example: "The time must be an integer."

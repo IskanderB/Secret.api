@@ -26,7 +26,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            DB::delete('DELETE FROM secrets WHERE (created_at + 60*time) < UNIX_TIMESTAMP(CURRENT_TIMESTAMP)');
+            $timeK = (string)24*3600;
+            $sql = 'DELETE FROM secrets WHERE (created_at + ' . $timeK . '*time) < UNIX_TIMESTAMP(CURRENT_TIMESTAMP)';
+            DB::delete($sql);
           })->everyMinute();
     }
 

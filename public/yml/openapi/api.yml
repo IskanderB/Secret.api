@@ -1,0 +1,15 @@
+openapi: 3.0.1
+
+info:
+    version: 1.0.0
+    title: 'API documentation for secret.api'
+servers:
+  - url: http://secret.api.ru/
+paths:
+    /api/v1/generate:
+        post:
+            $ref: "./paths/api/v1/generate.yml#/paths/apiV1Generate/post"
+
+    /api/v1/secrets/{secret_key}:
+        get:
+            $ref: "./paths/api/v1/secrets.yml#/paths/apiV1Secrets/get"
