@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+if (env('APP_ENV') == 'prod') {
+    URL::forceScheme('https');
+}
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,4 +30,3 @@ Route::post('/v1/generate', 'SecretController@generate')->name('generate');
  * Getting secret
  */
 Route::get('/v1/secrets/{secret_key}', 'SecretController@getOne')->name('secrets');
-
