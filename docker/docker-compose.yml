@@ -10,7 +10,7 @@ services:
         volumes:
             - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
         ports:
-            - 10080:80
+            - 10070:80
         working_dir: ${APP_PATH_CONTAINER}
 
     db:
@@ -27,7 +27,7 @@ services:
         build: ./phpmyadmin
         restart: always
         ports:
-            - 10081:80
+            - 10071:80
         environment:
             - PMA_ARBITRARY=1
 
