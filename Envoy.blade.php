@@ -27,6 +27,15 @@
   echo "#1 - Repository has been cloned"
 @endtask
 
+@task('env', ['on' => $on])
+  cd {{$release}}
+
+  ln -nfs {{$path}}/.env .env;
+  chgrp -h www-data .env;
+
+  echo "#2 - Production dependencies have been installed"
+@endtask
+
 @task('chmod', ['on' => $on])
   chgrp -R www-data {{$release}};
   chmod -R ug+rwx {{$release}};
@@ -45,11 +54,12 @@
   ln -nfs {{$release}} {{$current}};
   chgrp -h www-data {{$current}};
 
-  echo "#5 - Symlink has been set"
+  echo "#4 - Symlink has been set"
 @endtask
 
 @macro('deploy', ['on' => 'production'])
   clone
+  env
   chmod
   update_symlinks
 @endmacro
