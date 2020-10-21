@@ -24,13 +24,15 @@ services:
             - ${DB_PATH_HOST}:/var/lib/mysql
 
     phpmyadmin_secret:
-        depends_on:
-            - db_secret
         build: ./phpmyadmin
+        links:
+            - db_secret
         restart: always
         ports:
             - 10071:80
         environment:
+            - PMA_HOST=db_secret
+            - PMA_PORT=3306
             - PMA_ARBITRARY=1
 
     composer_secret:

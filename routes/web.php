@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocController;
+use App\Http\Controllers\IndexController;
 
 if (env('APP_ENV') == 'prod') {
     URL::forceScheme('https');
@@ -17,7 +18,5 @@ if (env('APP_ENV') == 'prod') {
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/documentation', [DocController::class, 'index'])->name('documentation');
